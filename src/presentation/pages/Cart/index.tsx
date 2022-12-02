@@ -18,7 +18,7 @@ const Cart: React.FC = () => {
   const dispatch = useDispatch();
 
   const hasProducts = !!cartData.items.length;
-  const isDesktop = width >= 1024;
+  const isDesktop = width >= 960;
 
   const cartSubtotal = cartData.items.reduce((acc, item) => {
     return acc + item.price * item.quantity;

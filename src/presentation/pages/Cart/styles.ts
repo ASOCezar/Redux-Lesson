@@ -16,6 +16,7 @@ export const CartSection = styled.section`
     border-radius: 4px 4px 0 0;
 
     @media (max-width: 1024px) {
+      max-width: 480px;
       max-height: unset;
       height: calc(100vh - 230px);
       padding: 16px 16px 0 16px;
@@ -44,6 +45,7 @@ export const ActionWrapper = styled.div`
     margin: 0 auto;
 
     @media (max-width: 1024px) {
+      max-width: 480px;
       flex-direction: column-reverse;
       align-items: flex-end;
       gap: 16px;
