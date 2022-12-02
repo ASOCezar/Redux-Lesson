@@ -1,7 +1,9 @@
 import CartType from '../../../@types/Cart';
 import Button from '../../components/Button';
+import CartCards from '../../components/CartCards';
 import CartItemsTable from '../../components/CartItemsTable';
 import currencyFormatter from '../../formatters/currencyFormatter';
+import useWindowSize from '../../hooks/useWindowSize';
 import * as Styled from './styles';
 
 const fakeCart: CartType = {
@@ -52,10 +54,15 @@ const fakeCart: CartType = {
 };
 
 const Cart: React.FC = () => {
+  const { width } = useWindowSize();
+
+  const renderCartContent = () =>
+    width < 1024 ? <CartCards data={fakeCart} /> : <CartItemsTable data={fakeCart} />;
+
   return (
     <>
       <Styled.CartSection>
-        <CartItemsTable cart={fakeCart} />
+        {renderCartContent()}
         <Styled.Divider />
       </Styled.CartSection>
       <Styled.ActionWrapper>

@@ -4,12 +4,12 @@ import CartItem from '../CartItem';
 import * as Styled from './styles';
 
 export type CartItemsTableProps = {
-  cart: Cart;
+  data: Cart;
 };
 
 const renderItem = (item: CartProduct) => <CartItem item={item} key={item.id} />;
 
-const CartItemsTable: React.FC<CartItemsTableProps> = ({ cart }) => {
+const CartItemsTable: React.FC<CartItemsTableProps> = ({ data }) => {
   return (
     <Styled.CartItemsTable>
       <thead>
@@ -20,7 +20,7 @@ const CartItemsTable: React.FC<CartItemsTableProps> = ({ cart }) => {
           <th></th>
         </tr>
       </thead>
-      <tbody>{cart.items.map(renderItem)}</tbody>
+      <tbody>{data.items.map(renderItem)}</tbody>
     </Styled.CartItemsTable>
   );
 };

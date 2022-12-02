@@ -1,7 +1,6 @@
 import CartProduct from '../../../@types/CartProduct';
-import MinusIcon from '../../assets/minus.svg';
-import PlusIcon from '../../assets/plus.svg';
 import currencyFormatter from '../../formatters/currencyFormatter';
+import CartQuantityController from '../CartQuantityController';
 import * as Styled from './styles';
 
 export type CartItemProps = {
@@ -23,15 +22,11 @@ const CartItem: React.FC<CartItemProps> = ({ item }) => {
 
   const renderQuantityControllerCell = () => (
     <Styled.TableCell>
-      <Styled.QuantityControllerWrapper>
-        <Styled.QuantityButton>
-          <img src={MinusIcon} alt="Sinal de menos" />
-        </Styled.QuantityButton>
-        <Styled.QuantityInput type="number" value={item.quantity} />
-        <Styled.QuantityButton>
-          <img src={PlusIcon} alt="Sinal de mais" />
-        </Styled.QuantityButton>
-      </Styled.QuantityControllerWrapper>
+      <CartQuantityController
+        defaultValue="1"
+        onClickMinus={() => console.log()}
+        onClickPlus={() => console.log()}
+      />
     </Styled.TableCell>
   );
 

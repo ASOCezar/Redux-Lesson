@@ -14,6 +14,11 @@ export const Text = styled.p`
   ${({ theme }) => css`
     font-weight: 700;
     font-size: ${theme.font.sizes.medium};
+
+    @media (max-width: 960px) {
+      max-width: 210px;
+      text-align: center;
+    }
   `}
 `;
 

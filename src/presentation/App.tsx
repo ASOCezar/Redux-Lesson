@@ -15,8 +15,13 @@ function App() {
 const Wrapper = styled.div`
   ${({ theme }) => css`
     background-color: ${theme.colors.background};
-    width: 100vw;
-    height: 100vh;
+    max-width: 100vw;
+    height: 100%;
+    min-height: 100vh;
+
+    @media (max-width: 1024px) {
+      padding: 0 16px 16px 16px;
+    }
   `}
 `;
 

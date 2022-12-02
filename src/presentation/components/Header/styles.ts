@@ -24,6 +24,10 @@ export const Title = styled.h1`
 export const CartGroup = styled.div`
   display: flex;
   gap: 9.33px;
+
+  @media (max-width: 960px) {
+    display: none;
+  }
 `;
 
 export const TextWrapper = styled.div`
@@ -38,6 +42,10 @@ export const MyCartText = styled.h2`
     font-size: ${theme.font.sizes.xsmall};
     font-weight: 600;
     line-height: 19px;
+
+    @media (max-width: 960px) {
+      display: none;
+    }
   `}
 `;
 

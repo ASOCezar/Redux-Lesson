@@ -20,5 +20,7 @@ export const Button = styled.button`
     font-size: ${theme.font.sizes.xxsmall};
     font-weight: 700;
     text-transform: uppercase;
+
+    cursor: pointer;
   `}
 `;
