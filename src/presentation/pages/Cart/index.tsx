@@ -1,63 +1,65 @@
-import CartType from '../../../@types/Cart';
-import Button from '../../components/Button';
-import CartCards from '../../components/CartCards';
-import CartItemsTable from '../../components/CartItemsTable';
+import { useDispatch, useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
+
+import EmptyCartImage from '../../assets/empty-cart.png';
 import currencyFormatter from '../../formatters/currencyFormatter';
 import useWindowSize from '../../hooks/useWindowSize';
+import { clear, selectCart } from '../../redux/Cart/Slice';
+import Button from '../../Shared/Button';
+import TextAndImageLayout from '../../Shared/TextAndImageLayout';
+import CartItemsTable from './components/CartItemsTable';
+import CartList from './components/CartList';
 import * as Styled from './styles';
-
-const fakeCart: CartType = {
-  items: [
-    {
-      id: 1,
-      title: 'Viúva Negra',
-      price: 9.99,
-      image: 'https://www.imagemhost.com.br/images/2022/07/10/viuva-negra.png',
-      quantity: 1,
-    },
-    {
-      id: 2,
-      title: 'Viúva Negra',
-      price: 9.99,
-      image: 'https://www.imagemhost.com.br/images/2022/07/10/viuva-negra.png',
-      quantity: 1,
-    },
-    {
-      id: 3,
-      title: 'Viúva Negra',
-      price: 9.99,
-      image: 'https://www.imagemhost.com.br/images/2022/07/10/viuva-negra.png',
-      quantity: 1,
-    },
-    {
-      id: 4,
-      title: 'Viúva Negra',
-      price: 9.99,
-      image: 'https://www.imagemhost.com.br/images/2022/07/10/viuva-negra.png',
-      quantity: 1,
-    },
-    {
-      id: 5,
-      title: 'Viúva Negra',
-      price: 9.99,
-      image: 'https://www.imagemhost.com.br/images/2022/07/10/viuva-negra.png',
-      quantity: 1,
-    },
-    {
-      id: 6,
-      title: 'Viúva Negra',
-      price: 9.99,
-      image: 'https://www.imagemhost.com.br/images/2022/07/10/viuva-negra.png',
-      quantity: 1,
-    },
-  ],
-};
 
 const Cart: React.FC = () => {
   const { width } = useWindowSize();
+  const cartData = useSelector(selectCart);
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
 
-  const renderCartContent = () =>
-    width < 1024 ? <CartCards data={fakeCart} /> : <CartItemsTable data={fakeCart} />;
+  const hasProducts = !!cartData.items.length;
+  const isDesktop = width >= 1024;
+
+  const cartSubtotal = cartData.items.reduce((acc, item) => {
+    return acc + item.price * item.quantity;
+  }, 0);
+
+  const handleClickGoBack = () => {
+    navigate('/');
+  };
+
+  const handleConfirmOrder = () => {
+    dispatch(clear({}));
+    navigate('/sucesso');
+  };
+
+  const renderCartContent = () => {
+    if (isDesktop) {
+      return <CartItemsTable data={cartData} />;
+    }
+    return <CartList data={cartData} />;
+  };
+
+  const renderCartActions = () => {
+    return (
+      <Styled.ActionWrapper>
+        <Button onClick={handleConfirmOrder}>Finalizar Pedido</Button>
+        <Styled.TotalOrderInfo>
+          <Styled.TotalText>Total</Styled.TotalText>
+          <Styled.TotalPrice>{currencyFormatter(cartSubtotal)}</Styled.TotalPrice>
+        </Styled.TotalOrderInfo>
+      </Styled.ActionWrapper>
+    );
+  };
+
+  if (!hasProducts)
+    return (
+      <TextAndImageLayout
+        text="Parece que não há nada por aqui :("
+        image={EmptyCartImage}
+        onGoBack={handleClickGoBack}
+      />
+    );
 
   return (
     <>
@@ -65,13 +67,7 @@ const Cart: React.FC = () => {
         {renderCartContent()}
         <Styled.Divider />
       </Styled.CartSection>
-      <Styled.ActionWrapper>
-        <Button>Finalizar Pedido</Button>
-        <Styled.TotalOrderInfo>
-          <Styled.TotalText>Total</Styled.TotalText>
-          <Styled.TotalPrice>{currencyFormatter(29.99)}</Styled.TotalPrice>
-        </Styled.TotalOrderInfo>
-      </Styled.ActionWrapper>
+      {renderCartActions()}
     </>
   );
 };

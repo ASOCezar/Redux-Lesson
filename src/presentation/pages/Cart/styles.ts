@@ -16,7 +16,8 @@ export const CartSection = styled.section`
     border-radius: 4px 4px 0 0;
 
     @media (max-width: 1024px) {
-      max-height: calc(100vh - 230px);
+      max-height: unset;
+      height: calc(100vh - 230px);
       padding: 16px 16px 0 16px;
     }
   `}

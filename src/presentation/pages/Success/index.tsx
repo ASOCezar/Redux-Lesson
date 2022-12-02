@@ -2,7 +2,7 @@ import { useNavigate } from 'react-router-dom';
 import styled, { css } from 'styled-components';
 
 import SuccessImg from '../../assets/success.png';
-import TextAndImageLayout from '../../components/TextAndImageLayout';
+import TextAndImageLayout from '../../Shared/TextAndImageLayout';
 
 const Sucess: React.FC = () => {
   const navigate = useNavigate();
