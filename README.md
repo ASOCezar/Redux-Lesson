@@ -1,37 +1,44 @@
-# Vite + React + Typescript + Eslint + Prettier
+# Carrinho de Compras React + Redux
 
-A starter for React with Typescript with the fast Vite and all static code testing with Eslint and formatting with Prettier.
+## Ferramentas
 
-![Vite + React + Typescript + Eslint + Prettier](/resources/screenshot.png)
+- React
+- Redux Toolkit
+- json-server
 
-I found out about Vite and I wanted to have a boilerplate for the technologies that I use. You can find more about these in the following links: [Vite](https://github.com/vitejs/vite), [React](https://reactjs.org/), [Typescript](https://www.typescriptlang.org/), [Eslint](https://eslint.org/), [Prettier](https://prettier.io/).
+## Sobre o desenvolvimento
 
-## Installation
+O desenvolvimento da aplicação foi completamente focado em seguir corretamente o layout pixel a pixel, facilitar a usabilidade e trazer uma experiência fluida e dinâmica ao usuário.
 
-Clone the repo and run `yarn install`
+Optei pelo uso do Redux Toolkit ao invés da Context API do React devido à pontos como:
+- Melhor performance do Redux com situações de alterações diversas nos estados ao longo da aplicação;
+- Melhor performance (até mesmo com ferramentas internas) para operações assíncronas;
 
-or Run command
+## Como clonar
+
+Para clonar esse repositório digite em seu terminal
 
 ```
-npx degit TheSwordBreaker/vite-reactts-eslint-prettier project-name
+git clone https://github.com/ASOCezar/wefit-test-2.git
 ```
 
-## Start
+## Como rodar
 
-After the successfull installation of the packages: `yarn dev`
+Após clonar a aplicação, dentro da pasta do projeto digite no terminal
 
-## Steps in Vscode
+```
+yarn
+```
+Após a instalação das dependências é necessário rodar o servidor com os dados da API feita com json-server em um terminal separado. Para isso, ainda dentro da pasta do projeto digite em seu terminal:
+```
+yarn run server
+```
+Com o server em funcionamento, em outro terminal, ainda dentro da pasta do projeto é só digitar em seu terminal:
+```
+yarn run dev
+```
 
-#### (works with better with this template)
+## Para acessar o deploy da aplicação
 
-1. Install Eslint and prettier extension for vs code.
-2. Make Sure Both are enabled
-3. Make sure all packages are Installed. (Mostly Eslint and prettier in node_modules)
-4. Enable formatOnSave of vs code
-5. Open a .tsx file and check if the bottom right corners of vs code have Eslint and Prettier with a double tick
+[Deploy](https://wefit-test-2-1hcj5vlsn-asocezar.vercel.app/)
 
-![Screenshot (253)_LI](https://user-images.githubusercontent.com/52120562/162486286-7383a737-d555-4f9b-a4dd-c4a81deb7b96.jpg)
-
-If Everything is Good Then It Should Work, but let me new if something else happens
-
-Made with ❤️ by theSwordBreaker(we Destory all types of sword ⚡)
