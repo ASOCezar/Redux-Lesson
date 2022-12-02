@@ -1,10 +1,12 @@
 import styled, { css } from 'styled-components';
 
+import Header from './components/Header';
 import { Router } from './router';
 
 function App() {
   return (
     <Wrapper>
+      <Header />
       <Router />
     </Wrapper>
   );
