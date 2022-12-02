@@ -30,6 +30,9 @@ export const Divider = styled.hr`
     height: 1px;
     background-color: ${theme.colors.gray};
     margin-top: 21px;
+    @media (max-width: 1024px) {
+      margin: auto 0 0 0;
+    }
   `}
 `;
 
