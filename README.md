@@ -38,7 +38,3 @@ Com o server em funcionamento, em outro terminal, ainda dentro da pasta do proje
 yarn run dev
 ```
 
-## Para acessar o deploy da aplicação
-
-[Deploy](https://wefit-test-2-1hcj5vlsn-asocezar.vercel.app/)
-
