@@ -19,7 +19,7 @@ Optei pelo uso do Redux Toolkit ao invés da Context API do React devido à pont
 Para clonar esse repositório digite em seu terminal
 
 ```
-git clone https://github.com/ASOCezar/wefit-test-2.git
+git clone https://github.com/ASOCezar/Redux-Lesson.git
 ```
 
 ## Como rodar
